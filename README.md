@@ -6,12 +6,11 @@ A simple shopping website built with Javascript (Angular), HTML 5 and CSS 3.
 Completed Features
 -----------------
 - As a User I can see a list of products displayed on the site.
-
+- As a User I can see my shopping cart.
 
 Features to Implement
 ---------------------
 
-- As a User I can see my shopping cart.
 - As a User I can add a product to my shopping cart.
 - As a User I can remove a product from my shopping cart.
 - As a User I can view the total price for the products in my shopping

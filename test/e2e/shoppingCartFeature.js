@@ -13,5 +13,9 @@ describe('Shopping Cart', function() {
     });
   });
 
-
+  it('displays a blank shopping cart', function(){
+    element.all(by.css('.cart li')).then(function(items){
+      expect(items.length).toEqual(0);
+    });
+  });
 });
