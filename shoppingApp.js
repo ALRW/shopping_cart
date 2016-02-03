@@ -6,10 +6,10 @@ ShoppingApp.controller('catalogueController', ['$http', function($http){
   self.getCatalogue = function(){
     $http.get('catalogue.json')
     .then(function(response){
-      console.log("response");
       self.products = response.data;
     });
   };
+  self.getCatalogue();
 }]);
 
 ShoppingApp.directive('catalogueView', function(){

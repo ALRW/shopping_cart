@@ -9,8 +9,9 @@ describe('Shopping Cart', function() {
 
   it('displays the shops products', function(){
     element.all(by.css('.items li')).then(function(items){
-      expect(items.length).toBe(4);
       expect(items[0].getText()).toBe("Almond Toe Court Shoes, Patent Black");
     });
   });
+
+
 });

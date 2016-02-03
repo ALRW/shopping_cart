@@ -11,11 +11,10 @@ describe('Catalogue Catalogue', function(){
   }));
 
   it('loads a json file', inject(function($http){
-    ctrl.getCatalogue();
     $httpBackend
     .expect('GET', 'catalogue.json')
     .respond(200, {foo:'bar'});
-    expect($httpBackend.flush).not.toThrow();
+    $httpBackend.flush();
     expect(ctrl.products).toEqual({foo:'bar'});
   }));
 });
