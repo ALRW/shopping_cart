@@ -1,9 +1,11 @@
 describe('Catalogue Catalogue', function(){
-  var $scope, ctrl;
+  var ctrl, mockBasketService;
+
   beforeEach(module('shoppingCart'));
 
   beforeEach(inject(function($controller){
-    ctrl = $controller('catalogueController', {$scope: $scope});
+    mockBasketService = jasmine.createSpyObj('basketService', ['addProduct', 'getProducts']);
+    ctrl = $controller('catalogueController', {basketService:mockBasketService});
   }));
 
   beforeEach(inject(function($injector){
@@ -17,4 +19,10 @@ describe('Catalogue Catalogue', function(){
     $httpBackend.flush();
     expect(ctrl.products).toEqual({foo:'bar'});
   }));
+
+  it('can use the basket service to add items to a cart', function(){
+    ctrl.pushProduct();
+    expect(mockBasketService.addProduct).toHaveBeenCalled();
+  });
+
 });

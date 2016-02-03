@@ -14,8 +14,16 @@ describe('Shopping Cart', function() {
   });
 
   it('displays a blank shopping cart', function(){
-    element.all(by.css('.cart li')).then(function(items){
-      expect(items.length).toEqual(0);
+    element.all(by.css('.cart li')).then(function(purchases){
+      expect(purchases.length).toEqual(0);
+    });
+  });
+
+  it('can place items from the catalogue into the shopping cart', function(){
+    element.all(by.css('.items button')).first().click();
+    element.all(by.css('.cart li')).then(function(purchases){
+      expect(purchases.length).toEqual(4);
+      expect(purchases[0].getText()).toBe("Almond Toe Court Shoes, Patent Black");
     });
   });
 });
