@@ -3,6 +3,10 @@ Shopping Cart
 
 A simple shopping website built with Javascript (Angular, Jasmine, Karma, Protractor), HTML 5 and CSS 3(BootStrap).
 
+![WebsiteView](styles/Screen Shot 2016-02-04 at 22.09.06.png)
+
+
+
 Completed Features
 -----------------
 - As a User I can see a list of products displayed on the site.
