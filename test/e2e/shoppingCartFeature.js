@@ -31,7 +31,14 @@ describe('Shopping Cart', function() {
     element.all(by.css('.items li')).then(function(items){
       expect(items[3].getText()).toBe('5');
     });
+  });
 
+  it('shows the total cost of items in the cart', function(){
+    for(var i = 0; i < 3; i++){
+    element.all(by.css('.items button')).first().click();
+    }
+    element.all(by.css('.items button')).last().click();
+    expect(element(by.css('.total')).getText()).toEqual("Subtotal: £837.00");
   });
 
 });
