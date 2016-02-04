@@ -1,5 +1,8 @@
 Shopping Cart
--------------
+=============
+
+Continuous Integration
+----------------------
 
 A simple shopping website built with Javascript (Angular, Jasmine, Karma, Protractor), HTML 5 and CSS 3(BootStrap).
 
