@@ -1,6 +1,8 @@
 <div>
-  <h2>Catalogue</h2>
-  <ul class="items" ng-repeat="product in catalogueCtrl.products">
+
+  <h1>Catalogue</h1>
+
+  <ul class="items" ng-repeat="product in shopCtrl.products" ng-show="product.quantity > 0">
 
     <li>
       {{product.name}}
@@ -17,8 +19,38 @@
     <li>
       {{product.quantity}}
     </li>
+    <li>
+    <button ng-click="shopCtrl.addPurchase(product)">Add {{product.name}} to Cart</button>
+    </li>
+  </ul>
 
-    <button ng-click="">Add to Cart</button>
+</div>
+
+<div>
+
+  <h2>Shopping Cart</h2>
+
+  <ul class="cart" ng-repeat="purchase in shopCtrl.purchases" ng-show="purchase.quantity > 0">
+
+    <li>
+      {{purchase.name}}
+    </li>
+
+    <li>
+      {{purchase.category}}
+    </li>
+
+    <li>
+      {{purchase.price}}
+    </li>
+
+    <li>
+      {{purchase.quantity}}
+    </li>
+
+    <li>
+      <button ng-click="shopCtrl.removePurchase(purchase)">Remove {{purchase.name}}</button>
+    </li>
 
   </ul>
 

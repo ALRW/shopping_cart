@@ -14,16 +14,24 @@ describe('Shopping Cart', function() {
   });
 
   it('displays a blank shopping cart', function(){
-    element.all(by.css('.cart li')).then(function(purchases){
-      expect(purchases.length).toEqual(0);
-    });
+    var title = element(by.css('h2')).getText();
+    expect(title).toBe("Shopping Cart");
   });
 
   it('can place items from the catalogue into the shopping cart', function(){
     element.all(by.css('.items button')).first().click();
     element.all(by.css('.cart li')).then(function(purchases){
-      expect(purchases.length).toEqual(4);
       expect(purchases[0].getText()).toBe("Almond Toe Court Shoes, Patent Black");
     });
   });
+
+  it('can remove an item from the shopping cart', function(){
+    element.all(by.css('.items button')).first().click();
+    element.all(by.css('.cart button')).first().click();
+    element.all(by.css('.items li')).then(function(items){
+      expect(items[3].getText()).toBe('5');
+    });
+
+  });
+
 });
