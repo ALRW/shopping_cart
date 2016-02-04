@@ -3,11 +3,46 @@ Shopping Cart
 
 Continuous Integration
 ----------------------
+Master: ![Master](https://travis-ci.org/ALRW/shopping_cart.svg?branch=master)
+
+Description
+------------
 
 A simple shopping website built with Javascript (Angular, Jasmine, Karma, Protractor), HTML 5 and CSS 3(BootStrap).
 
 ![WebsiteView](styles/Screen Shot 2016-02-04 at 22.09.06.png)
 
+User Guide
+----------
+
+To run this website locally, clone this repository, ensure you have node and bower installed:
+```
+brew install node  
+npm install bower -g
+```
+Then install all the project dependencies:
+```
+npm install
+bower install
+```
+a local server can then be run using the command
+```
+npm start
+```
+and visited in any browser by going to the following URL:
+```
+http://127.0.0.1:8080
+```
+Unit tests can be run using:
+```
+npm test
+```
+In order to run full end to end testing open three terminal windows and run the following commands in each:
+```
+npm start
+webdriver-manager start
+protractor test/e2e/conf.js
+```
 
 
 Completed Features
@@ -26,7 +61,7 @@ with discounts applied.
 cart.
 - Add basic Styling.
 
-Work to do
+Work left to do
 ---------------------
 
 - refactor controller

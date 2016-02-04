@@ -4,7 +4,8 @@
   "description": "Shopping website",
   "main": "index.js",
   "scripts": {
-    "test": "karma start test/karma.conf.js"
+    "test": "karma start test/karma.conf.js",
+    "start": "http-server"
   },
   "repository": {
     "type": "git",
