@@ -1,8 +1,8 @@
 ShoppingApp.controller('shopController', ['$http', function($http) {
+  var check;
   var self = this;
   self.products = [];
   self.purchases = [];
-  self.total = 0;
 
   self.addPurchase = function(object) {
     self.purchases.forEach(function(purchase){
@@ -31,6 +31,20 @@ ShoppingApp.controller('shopController', ['$http', function($http) {
     });
   };
 
+  self.applyDiscount = function(){
+    self.correct = null;
+    productChecker();
+    if(nameChecker('PROMO1')){
+      self.total -= 5;
+    } else if(nameChecker('PROMO2') && self.total >= 50){
+      self.total -=10;
+    } else if(nameChecker('PROMO3') && self.total >=75 && check){
+      self.total -=15;
+    } else {
+      self.correct = "That is an incorrect Code";
+    }
+  };
+
   var getCatalogue = function() {
     $http.get('catalogue.json')
       .then(function(response) {
@@ -39,10 +53,22 @@ ShoppingApp.controller('shopController', ['$http', function($http) {
         self.purchases.forEach(function(purchase){
           purchase.quantity = 0;
         });
-      }, function() {
-        console.log("The catalogue failed to load");
       });
   };
   getCatalogue();
+
+  var nameChecker = function(name){
+    return self.voucherName === name;
+  };
+
+  var productChecker = function(){
+    self.purchases.forEach(function(purchase){
+       var type = purchase.category.split(' ')[1];
+      if(type === "Footwear"){
+        check = true;
+      }
+    });
+  };
+
 
 }]);

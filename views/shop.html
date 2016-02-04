@@ -53,5 +53,12 @@
     </li>
 
   </ul>
-  <h3 class="total">Subtotal: {{shopCtrl.total | currency:"£"}}</h3>
+  <h3 class="total">Total: {{shopCtrl.total | currency:"£"}}</h3>
+  <form class="discounts">
+    <h4 ng-show="shopCtrl.correct">{{shopCtrl.correct}}</h4>
+    <input type="text" ng-model="shopCtrl.voucherName">
+    <button ng-click="shopCtrl.applyDiscount()">Apply Voucher</button>
+  </form>
+
+
 </div>

@@ -38,7 +38,22 @@ describe('Shopping Cart', function() {
     element.all(by.css('.items button')).first().click();
     }
     element.all(by.css('.items button')).last().click();
-    expect(element(by.css('.total')).getText()).toEqual("Subtotal: £837.00");
+    expect(element(by.css('.total')).getText()).toEqual("Total: £837.00");
   });
 
+  it('allows a voucher to be used', function(){
+    for(var i = 0; i < 3; i++){
+    element.all(by.css('.items button')).first().click();
+    }
+    element.all(by.css('.items button')).last().click();
+    element(by.css('input')).sendKeys('PROMO1');
+    element(by.css('.discounts button')).click();
+    expect(element(by.css('.total')).getText()).toEqual("Total: £832.00");
+  });
+
+  it('raises and alert when an incorrect voucher is used', function(){
+    element(by.css('input')).sendKeys('PROMO5');
+    element(by.css('.discounts button')).click();
+    expect(element(by.css('h4')).getText()).toEqual("That is an incorrect Code");
+  });
 });

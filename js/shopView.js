@@ -1,7 +1,7 @@
 ShoppingApp.directive('catalogueView', function() {
   return {
     restrict: "E",
-    templateUrl: 'views/catalogue.html',
+    templateUrl: 'views/shop.html',
     controller: 'shopController',
     controllerAs: 'shopCtrl'
   };
