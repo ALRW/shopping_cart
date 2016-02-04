@@ -1,0 +1,26 @@
+{
+  "name": "shopping_cart",
+  "homepage": "https://github.com/ALRW/shopping_cart",
+  "authors": [
+    "ALRW <awerner1@googlemail.com>"
+  ],
+  "description": "Shopping website",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular-mocks": "~1.4.9",
+    "angular-route": "~1.4.9"
+  },
+  "dependencies": {
+    "angular": "~1.4.9",
+    "jquery": "~2.2.0"
+  }
+}

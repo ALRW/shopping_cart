@@ -1,0 +1,64 @@
+<div>
+
+  <h1>Catalogue</h1>
+
+  <ul class="items" ng-repeat="product in shopCtrl.products" ng-show="product.quantity > 0">
+
+    <li>
+      {{product.name}}
+    </li>
+
+    <li>
+      {{product.category}}
+    </li>
+
+    <li>
+      {{product.price | currency:"£"}}
+    </li>
+
+    <li>
+      {{product.quantity}}
+    </li>
+    <li>
+    <button ng-click="shopCtrl.addPurchase(product)">Add {{product.name}} to Cart</button>
+    </li>
+  </ul>
+
+</div>
+
+<div>
+
+  <h2>Shopping Cart</h2>
+
+  <ul class="cart" ng-repeat="purchase in shopCtrl.purchases" ng-show="purchase.quantity > 0">
+
+    <li>
+      {{purchase.name}}
+    </li>
+
+    <li>
+      {{purchase.category}}
+    </li>
+
+    <li>
+      {{purchase.price | currency:"£"}}
+    </li>
+
+    <li>
+      {{purchase.quantity}}
+    </li>
+
+    <li>
+      <button ng-click="shopCtrl.removePurchase(purchase)">Remove {{purchase.name}}</button>
+    </li>
+
+  </ul>
+  <h3 class="total">Total: {{shopCtrl.total | currency:"£"}}</h3>
+  <form class="discounts">
+    <h4 ng-show="shopCtrl.correct">{{shopCtrl.correct}}</h4>
+    <input type="text" ng-model="shopCtrl.voucherName">
+    <button ng-click="shopCtrl.applyDiscount()">Apply Voucher</button>
+  </form>
+
+
+</div>
