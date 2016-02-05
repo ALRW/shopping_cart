@@ -33,6 +33,8 @@ and visited in any browser by going to the following URL:
 ```
 http://127.0.0.1:8080
 ```
+If you would like a discount simply submit one of the following promo codes: `PROMO1`, `PROMO2`, `PROMO3`.
+
 Unit tests can be run using:
 ```
 npm test
